@@ -10,7 +10,11 @@ const productsTypeMatcher = {
 }
 
 export default {
-  Query: {},
+  Query: {
+    getData(_, args, context, info) {
+      throw Error()
+    }
+  },
   Mutation: {},
   Product: {
     __resolveType(product) {}
