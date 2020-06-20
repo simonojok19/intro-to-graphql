@@ -55,3 +55,12 @@ extend type Mutation {
   updateProduct(id: ID!, input: UpdateProductInput!): Product!
   removeProduct(id: ID!): Product!
 }
+
+interface Animal {
+  species: String!
+  location: String!
+}
+
+type Tiger implements Animal {
+  stripes: Int
+}
