@@ -13,6 +13,7 @@ enum BikeType {
 
 type Product {
   name: String!
+  price: Float!
   image: String!
   type: ProductType!
   createdBy: User!
@@ -20,4 +21,26 @@ type Product {
   liquidCooled: Boolean,
   range: String
   bikeType: BikeType
+}
+
+input NewProductInput {
+  name: String!
+  price: Float!
+  image: String!
+  type: String!
+  description: String
+  liquidCooled: Boolean
+  bikeType: BikeType
+  range: String
+}
+
+input UpdateProductInput {
+  name: String
+  price: Float
+  image: String
+  type: String
+  description: String
+  liquidCooled: Boolean
+  bikeType: BikeType
+  range: String
 }
