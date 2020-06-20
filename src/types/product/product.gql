@@ -44,3 +44,14 @@ input UpdateProductInput {
   bikeType: BikeType
   range: String
 }
+
+extend type Query {
+  product(id: ID!): Product!
+  products: [Product]!
+}
+
+extend type Mutation {
+  newProduct(input: NewProductInput!): Product!
+  updateProduct(id: ID!, input: UpdateProductInput!): Product!
+  removeProduct(id: ID!): Product!
+}
