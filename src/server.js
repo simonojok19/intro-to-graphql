@@ -44,30 +44,30 @@ export const start = async () => {
         owner(first, args, context, info) {
           console.log('In Query.owner()')
           return {}
+        }
+      },
+      Cat: {
+        name(previous, args, constext, info) {
+          console.log('In Query.Cat.name()')
+          return 'Donie'
         },
-        Cat: {
-          name(previous, args, constext, info) {
-            console.log('In Query.Cat.name()')
-            return 'Donie'
-          },
-          age(previous, args, context, info) {
-            console.log('In Query.Cat.age()')
-            return 2
-          },
-          owner(previous, args, constex, info) {
-            console.log('In Query.Cat.owner()')
-            return {}
-          }
+        age(previous, args, context, info) {
+          console.log('In Query.Cat.age()')
+          return 2
         },
-        Owner: {
-          name(previous, args, context, info) {
-            console.log('In Query.Owner.name()')
-            return 'Simon Ojok'
-          },
-          cat(previous, args, context, infor) {
-            console.log('In Query.Owner.cat()')
-            return {}
-          }
+        owner(previous, args, constex, info) {
+          console.log('In Query.Cat.owner()')
+          return {}
+        }
+      },
+      Owner: {
+        name(previous, args, context, info) {
+          console.log('In Query.Owner.name()')
+          return 'Simon Ojok'
+        },
+        cat(previous, args, context, infor) {
+          console.log('In Query.Owner.cat()')
+          return {}
         }
       }
     },
