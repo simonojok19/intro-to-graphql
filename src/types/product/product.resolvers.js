@@ -14,9 +14,19 @@ const products = (previous, args, context, info) => {
 }
 
 const product = (previous, args, context, info) => {
-  return Product.findById(args.id)
-  .lean()
-  .exec()
+  Product.findById(args.id).exec()
+}
+
+const newProduct = (previous, args, context, info) => {
+  return Product.create({ ...args.input, context.user._id })
+}
+
+const updateProduct = (previous, args, context, info) => {
+  return Product.findOneAndUpdate();
+}
+
+const removeProduct = (previous, args, context, info) => {
+
 }
 
 export default {
@@ -24,8 +34,15 @@ export default {
     products,
     product
   },
-  Mutation: {},
+  Mutation: {
+    newProduct,
+    updateProduct,
+    removeProduct
+  },
   Product: {
-    __resolveType(product) {}
+    __resolveType(product) {},
+    createdBy(product, args, context, info) {
+      return User.findById(product);
+    }
   }
 }
